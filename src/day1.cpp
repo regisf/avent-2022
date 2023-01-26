@@ -1,6 +1,8 @@
+#include <algorithm>
+#include <cstdlib>
 #include <fstream>
 #include <iostream>
-#include <cstdlib>
+#include <numeric>
 #include <vector>
 
 int main(int argc, char ** argv)
@@ -19,18 +21,14 @@ int main(int argc, char ** argv)
     }
 
     std::string line;
-    std::vector<int> lines;
+    std::vector<int> calories;
     int current = 0;
-    int biggest = 0;
 
     while (std::getline(in_stream, line)) 
     {
         if (line.empty()) 
         {
-            if (current > biggest) 
-            {
-                biggest = current;
-            }
+            calories.push_back(current);
             current = 0;
             continue;
         }
@@ -39,6 +37,11 @@ int main(int argc, char ** argv)
 
     in_stream.close();
 
-    std::cout << biggest << "\n";
+    std::sort(calories.begin(), calories.end(), std::greater<int>());
+    int total_calories = std::accumulate(calories.begin(), calories.begin() + 3, 0);
+
+    std::cout << "Biggest calories eater        : " << calories.at(0) << "\n";
+    std::cout << "Total of calories for the top : " << total_calories << "\n";
+
     return 0;
 }
