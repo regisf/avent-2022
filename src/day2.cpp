@@ -54,24 +54,21 @@ int main(int argc, char ** argv)
 
     std::map<Play, std::map<Play, int> > r = {
         { Play::Rock, { 
-                         { Play::Rock, DrawScore + static_cast<int>(Play::Rock)},
-                         { Play::Paper, WonScore + static_cast<int>(Play::Paper)},
-                         { Play::Scissors, LostScore + static_cast<int>(Play::Scissors)}
-                     }
-        },
+            { Play::Rock, DrawScore + static_cast<int>(Play::Rock) },
+            { Play::Paper, WonScore + static_cast<int>(Play::Paper) },
+            { Play::Scissors, LostScore + static_cast<int>(Play::Scissors) }
+        }},
         { Play::Paper, {
-                          { Play::Rock, LostScore + static_cast<int>(Play::Rock)},
-                          { Play::Paper, DrawScore + static_cast<int>(Play::Paper)},
-                           {Play::Scissors, WonScore + static_cast<int>(Play::Scissors)}
-                }
-        },
+            { Play::Rock, LostScore + static_cast<int>(Play::Rock) },
+            { Play::Paper, DrawScore + static_cast<int>(Play::Paper) },
+            { Play::Scissors, WonScore + static_cast<int>(Play::Scissors) }
+        }},
 
         { Play::Scissors, {
-                             { Play::Rock, WonScore + static_cast<int>(Play::Rock)},
-                             { Play::Paper, LostScore + static_cast<int>(Play::Paper)},
-                             { Play::Scissors, DrawScore + static_cast<int>(Play::Scissors)}
-            }
-        }
+            { Play::Rock, WonScore + static_cast<int>(Play::Rock) },
+            { Play::Paper, LostScore + static_cast<int>(Play::Paper) },
+            { Play::Scissors, DrawScore + static_cast<int>(Play::Scissors) }
+        }}
     };
 
     while (std::getline(in_stream, line))
