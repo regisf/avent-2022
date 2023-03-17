@@ -7,14 +7,14 @@
 
 int main(int argc, char ** argv)
 {
-    if (argc != 2) 
+    if (argc != 2)
     {
         std::cerr << "Il faut un et un seul argument, le fichier d'input\n";
         std::exit(EXIT_FAILURE);
     }
 
     std::ifstream in_stream{argv[1]};
-    if (!in_stream.is_open()) 
+    if (!in_stream.is_open())
     {
         std::cerr << "Impossible d'ouvrir le fichier\n";
         std::exit(EXIT_FAILURE);
@@ -24,9 +24,9 @@ int main(int argc, char ** argv)
     std::vector<int> calories;
     int current = 0;
 
-    while (std::getline(in_stream, line)) 
-    {
-        if (line.empty()) 
+    while (std::getline(in_stream, line))
+
+        if (line.empty())
         {
             calories.push_back(current);
             current = 0;
